@@ -1,0 +1,61 @@
+protocol: lovecraftian cyberpunk alignment based translation adventure
+
+almost all language is hidden. there is ready employment for those who can speak. 
+don't get eliminated. don't get infected.
+
+additional dialog and mission options unlocked by
+-alignment
+-inventory
+-skills
+-previous choices
+
+resources
+-con (meat brain)
+-alignment
+	-good/evil
+	-law/chaos
+-rep (faction and general)
+
+assignment mini games
+-hack (find sets to learn letters, without getting caught)
+-translate secret and/or alien conversations
+
+1. intro, your brainroom:
+	-your implants
+	-your word horde summary
+	-the mission board
+	-the implant shop
+	-the black market board
+
+2. implants:
+	-time dialator lvl N, tries to slow translation speed to match mission speed
+	-word bank lvl N, allows you to safely store n*10 number of words
+	-decrypter lvl N, allows you to take on more difficult hacking exercises
+
+3. mission board:
+	-availability by rep, past missions completed/failed, current implant levels
+	-types: (most reward some coin, general rep, faction rep)
+		-basic translation (not time sensetive)
+		-advanced translation (time sensetive, dialation required)
+		-hack, extract knowledge. Reward can be the knowledge or coin.
+
+4. implant shop: buy or upgrade implants with coin. Add new implant slots for sanity cost. Faction stores will have better prices and stock.
+5. black market shop: buy word hoards and other exotics. Chance of being infected when using.
+
+6. Hacking mission (certain data language)
+	find sets to unlock the letters on them
+7. Translate mission
+	basic
+		Given a document and a data language, type the translation using your word horde (typing tutor)
+	advanced
+		Given a document, translate within a given time frame, possibly more than real time
+
+Components:
+Brainroom
+Mission bbs 				(Mission Editor)
+Mission Brief/Debrief view  (Mission Editor)
+Implant store (public or faction or black label)
+Hacking deck (set board)
+Translation interface (mavis beacon)
+
+during story translation missions, there may be opportunity to mis-translate things for a different outcome
