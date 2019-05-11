@@ -1,9 +1,9 @@
 import * as React from 'react';
-import UIStateContainer from './components/uiManager/UIStateContainer';
 import './App.css';
 import { createStore, applyMiddleware } from 'redux'
 import appReducer from '../client/components/uiManager/UIManagerReducer'
 import { Provider } from 'react-redux'
+import UIStateContainer from './components/uiManager/UIStateContainer';
 const thunkMiddleware = require('redux-thunk')
 
 let store = createStore(appReducer, applyMiddleware(

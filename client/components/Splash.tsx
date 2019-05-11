@@ -2,49 +2,56 @@ import * as React from 'react';
 import { onMatchStart } from './uiManager/Thunks'
 import AppStyles from '../AppStyles';
 import { Button, TopBar } from './Shared'
-import { getRandomInt, getRandomCoinName, getRandomCoinRune, getFreshCoinBlock } from './Util';
+import { getId, getSaves } from './Util';
 
-export default class Login extends React.Component {
+export default class Splash extends React.Component {
+
+    state = { name: '', saves: getSaves() }
+    
     render(){
         return (
             <div style={AppStyles.window}>
                 {TopBar('Welcome')}
                 <div style={{padding:'0.5em'}}>
-                    <h3 style={{margin:'0'}}>MacMiner</h3>
-                    {Button(true, ()=>onMatchStart(getUser(), getInitialCoin()), 'Start')}
+                    <h3 style={{margin:'0'}}>MacTranslate</h3>
+                    <input style={{...styles.loginInput, marginBottom:'0.5em'}} 
+                           type="text" 
+                           value={this.state.name} 
+                           onChange={(e)=>this.setState({name:e.currentTarget.value})}/>
+                    {Button(!!this.state.name, ()=>onMatchStart(getNewPlayer(this.state.name)), 'New')}
+                    {this.state.saves.map(player => 
+                        Button(true, ()=>onMatchStart(player), 'Load '+player.name))}
                 </div>
             </div>
         )
     }
 }
 
-const getUser = () => {
+const getNewPlayer = (name:string) => {
    return {
-       id: Date.now() + ''+ Math.random(),
+       id: getId(),
        rack: getEmptyRack(),
-       power: 0,
-       wallet: new Array<CoinHolding>(),
-       passives: new Array<Passive>()
-    }
-}
-
-const getInitialCoin = () => {
-    let amount = getRandomInt(1000)
-    let value = Math.round(amount / 100)
-    return {
-        name: getRandomCoinName(),
-        rune: getRandomCoinRune(),
-        value,
-        difficulty: 1,
-        circulation: amount*getRandomInt(20),
-        activeBlock: getFreshCoinBlock()
+       name,
+       notoriety: 0,
+       wordHorde: new Array<Language>(),
+       sanity: 0,
+       factions: new Array<Faction>(),
+       power: 0
     }
 }
 
 const getEmptyRack = () => 
     new Array(3).fill(null).map(rackTile => {
         return {
-            id: Date.now()+''+Math.random(),
+            id: getId(),
             equipment: null
         }
     })
+
+const styles = {
+    loginInput: {
+        boxShadow: 'none',
+        border: '1px solid',
+        minWidth:'10em'
+    }
+}

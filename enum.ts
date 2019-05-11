@@ -1,18 +1,16 @@
-export enum MatchStatus {ACTIVE='ACTIVE',WIN='WIN',LOSE='LOSE', SETUP='SETUP'}
-export enum TileState {ACTIVE='ACTIVE', CORRECT='CORRECT', WRONG='WRONG', ASSASSIN='ASSASSIN', NEUTRAL='NEUTRAL'}
-export const ApiUrl= 'ws://localhost:1337'
-// export const ApiUrl= 'wss://services.cryptonomical.com:3333'
+export enum Scenes {
+    Room, HackingDeck, Translator
+}
+export enum MissionType {
+    Translate, TimedTranslate, Hack
+}
+export enum ImplantType {
+    Dialator, Decryptor, CoinMiner, WordHorde, AntiVirus, None
+}
+
 export const ReducerActions= {
-    MATCH_UPDATE: 'mu',
     MATCH_TICK: 'mt',
-    PLAYER_READY: 'pr',
-    MATCH_START: 'ms',
-    MATCH_WIN: 'mw',
-    MATCH_LOST: 'ml',
-    MATCH_CLEANUP: 'mc',
-    SET_USER: 'su',
-    PLAYER_UPDATE: 'pu',
-    PLAYER_MINED: 'pm'
+    PLAYER_UPDATE: 'pu'
 }
 
 export enum EquipmentType {

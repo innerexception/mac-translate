@@ -1,20 +1,23 @@
 import * as React from 'react';
-import Match from '../match/Match'
-import Login from '../Splash'
+import Session from '../session/Session'
+import Splash from '../Splash'
+import MissionEditor from '../session/MissionEditor'
 import AppStyles from '../../AppStyles';
 
 interface Props {
     currentUser: Player
-    activeSession: Session
 }
 
 export default class UIManager extends React.Component<Props> {
     getComponent = () => {
         if(!this.props.currentUser.id){
-            return <Login {...this.props}/>
+            return <Splash />
+        }
+        else if(this.props.currentUser.name === 'admin'){
+            return <MissionEditor currentUser={this.props.currentUser} />
         }
         else {
-            return <Match {...this.props}/>
+            return <Session currentUser={this.props.currentUser} />
         }
     }
 

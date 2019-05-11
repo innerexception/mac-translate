@@ -8,11 +8,13 @@ declare enum ImplantType {
 
 interface Player {
     id:string
+    name: string
     rack: Array<RackTile>
     notoriety: number
     wordHorde: Array<Language>
     sanity: number
     factions: Array<Faction>
+    power: number
 }
 
 interface Language {
@@ -27,6 +29,7 @@ interface Implant {
     sprite: string
     type: ImplantType
     level: number
+    power: number
 }
 
 interface RackTile {
